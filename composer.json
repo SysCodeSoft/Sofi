@@ -21,6 +21,8 @@
         "raveren/kint": "^1.0",
         "syscode/sofi-http-message": "*",
         "syscode/sofi-http-server": "*",
+        "syscode/sofi-mvc": "*",
+        "syscode/sofi-data": "*",
         "syscode/sofi-router": "*"
     },
     "autoload": {
