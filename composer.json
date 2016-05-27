@@ -20,7 +20,7 @@
         "ext-mbstring": "*",
         "syscode/sofi-base": "*",
         "syscode/sofi-http-message": "*",
-        "syscode/sofi-http-server": "*",
+        "syscode/sofi-server": "*",
         "syscode/sofi-mvc": "*",
         "syscode/sofi-data": "*",
         "syscode/sofi-router": "*"
