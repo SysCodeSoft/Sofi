@@ -29,7 +29,7 @@
         "psr-4": {"Sofi\\": "src"}
     },
     "bin": [
-        "bin/sofi"
+        "src/bin/sofi"
     ],
     "extra": {
         "branch-alias": {
