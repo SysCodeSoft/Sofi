@@ -22,7 +22,7 @@
         "syscode/sofi-http-message": "*",
         "syscode/sofi-server": "*",
         "syscode/sofi-mvc": "*",
-        "syscode/sofi-data": "*",
+        "syscode/sofi-db": "*",
         "syscode/sofi-router": "*"
     },
     "autoload": {
