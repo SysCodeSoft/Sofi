@@ -1,3 +1,27 @@
 #!/usr/bin/env php
 <?php
- echo "Hello";
+if (PHP_SAPI != 'cli') {
+    die("Sofi assistant can be run only from cli");
+}
+
+if (empty($argv[1])) {
+    echo "Sofi assistant" . PHP_EOL;
+    exit();
+}
+
+$initDir = $_SERVER['PWD'];
+
+if ($argv[1] == 'migrate') {
+    echo "Migrate " . PHP_EOL;
+
+    if ($argv[2] == 'create') {
+        if (!empty($argv[3])) {
+            
+        }
+    }
+
+
+
+    exit();
+}
+
