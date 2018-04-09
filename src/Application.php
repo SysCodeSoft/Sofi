@@ -8,9 +8,10 @@ use Sofi\Base\interfaces\InitializedInterface;
  * Приложение
  * 
  * @property \Sofi\Router\Router          $Router
- * @property \Sofi\data\DB\interfaces\DB          $DB
+ * @property \Sofi\data\DB\interfaces\DB  $DB
  * @property \Sofi\mvc\Layout             $Layout
- * @property \Sofi\components\UserContext             $UserContext
+ * @property \app\Services                $Services
+ * @property \app\components\UserContext  $UserContext
  * 
  */
 class Application extends Module
@@ -82,13 +83,9 @@ class Application extends Module
 
     function run()
     {
-        $Context = new Context();
+        $Context = new Context($this->Router, $this->Layout);
         try {
-            $this->Router->dispatch($Context);
-
-            $Context->prepareResult();
-            $this->Layout->Context = $Context;
-            $Context->prepareResponse($this->Layout ?? null);
+            $Context->dispatch();
         } finally {
             if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
                 echo 'ajax';
@@ -133,7 +130,7 @@ class Application extends Module
             ob_end_flush();
         }
         echo $response->getBody();
-        
+
         if (function_exists('fastcgi_finish_request')) {
             fastcgi_finish_request();
         }
